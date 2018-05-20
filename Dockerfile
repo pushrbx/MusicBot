@@ -11,17 +11,15 @@ RUN apk update \
   ffmpeg \
   opus \
   python3 \
-  libsodium-dev \
 \
 # Install build dependencies
 && apk add --no-cache --virtual .build-deps \
   gcc \
   git \
-  libffi-dev \
   make \
-  musl-dev \
   python3-dev \
 \
+&& apk add --no-cache libsodium-dev musl-dev libffi-dev \
 # Install pip dependencies
 && pip3 install --no-cache-dir -r requirements.txt \
 && pip3 install --upgrade --force-reinstall --version websockets==4.0.1 \
